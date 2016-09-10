@@ -2,6 +2,7 @@
 #
 # TRIP ADVISOR OPINIONS
 #
+# Description: Scrap TripAdvisor opinions and user information
 # Inspired by:
 # http://notesofdabbler.github.io/201408_hotelReview/scrapeTripAdvisor.html
 # Author: Ana Valdivia
