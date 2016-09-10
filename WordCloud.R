@@ -2,7 +2,7 @@
 #
 # WORD CLOUD TRIP ADVISOR
 #
-# Inspired by:
+# Inspired by: Print a word cloud with opinions
 # 
 # Author: Ana Valdivia
 # Date: June 2016
