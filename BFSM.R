@@ -1,8 +1,8 @@
 # ###########################################################################
 #
-# BIGRAM BAG OF WORDS TRIP ADVISOR OPINIONS
+# BIGRAM FEATURE SELECTION METHOD
 #
-# Description: Create a bigram bag of words for pos, neg and neutral opinions
+# Description: Select Bigram Features for Doc-Term matrix construction
 # Author: Ana Valdivia
 # Date: August 2016
 ###########################################################################
