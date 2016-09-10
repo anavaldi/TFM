@@ -2,7 +2,7 @@
 #
 # MODEL PERFORMANCE
 #
-# Description: Develop several models and print results
+# Description: Construct several models and print results
 # Author: Ana Valdivia
 # Date: August 2016
 ###########################################################################
