@@ -1,8 +1,8 @@
 # ###########################################################################
 #
-# BAG OF WORDS TRIP ADVISOR OPINIONS
+# UNIGRAM FEATURE SELECTION METHOD (USFM)
 #
-# Description: Create a bag of words for pos, neg and neutral opinions
+# Description: Select Features for Doc-Term matrix construction
 # Author: Ana Valdivia
 # Date: July 2016
 ###########################################################################
