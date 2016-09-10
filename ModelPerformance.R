@@ -1,8 +1,8 @@
 # ###########################################################################
 #
-# SPLIT DATA 
+# MODEL PERFORMANCE
 #
-# Description: Split data into train and test and balanced data sets
+# Description: Develop several models and print results
 # Author: Ana Valdivia
 # Date: August 2016
 ###########################################################################
