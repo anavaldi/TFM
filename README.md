@@ -1,8 +1,4 @@
-# TFM
-
-Code developed in Master Thesis.
-
-# Title: Sentiment Analysis For Touristic Attractions: A Case Study On The Alhambra
+#  Sentiment Analysis For Touristic Attractions: A Case Study On The Alhambra
 
 Abstract: The development of Web 2.0 has led to an important amount of content in webpage. Users are free to express their opinions about products, places and events.
 This project research is aimed at introducing sentiment analysis into touristic attractions. To begin with, we scrap TripAdvisor reviews from the most touristic
