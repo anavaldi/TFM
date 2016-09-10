@@ -1,10 +1,10 @@
 # ###########################################################################
 #
-# BAG OF WORDS TRIP ADVISOR OPINIONS
+# BIGRAM BAG OF WORDS TRIP ADVISOR OPINIONS
 #
-# Description: Create a bag of words for pos, neg and neutral opinions
+# Description: Create a bigram bag of words for pos, neg and neutral opinions
 # Author: Ana Valdivia
-# Date: July 2016
+# Date: August 2016
 ###########################################################################
 
 # Load packages
