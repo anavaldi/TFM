@@ -1,8 +1,8 @@
 ###########################################################################
 #
-# WORD CLOUD TRIP ADVISOR
+# BIGRAM WORD CLOUD TRIP ADVISOR
 #
-# Inspired by:
+# Inspired by: Word cloud for bigrams
 # 
 # Author: Ana Valdivia
 # Date: June 2016
