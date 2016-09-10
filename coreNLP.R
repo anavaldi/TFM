@@ -1,7 +1,8 @@
 ###########################################################################
 #
-# SENTIMENT ANALYSIS TRIP ADVISOR
+# CORENLP SA TRIP ADVISOR
 #
+# Description: Apply CoreNLP SA on Alhambra reviews
 # Inspired by:
 # https://github.com/statsmaths/coreNLP
 # https://github.com/ashukumar27/TripadvisorReviewMining
