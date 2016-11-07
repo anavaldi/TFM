@@ -18,8 +18,8 @@ Sys.setlocale("LC_TIME", "English")
 
 # Scrapping
 TripAdvisorAlhambra <- data.frame()
-totalpages <- 842
-last <- 12
+totalpages <- 842 # upload with total pages to scrap on TripAdvisor webpage
+last <- 1
 
 for(k in last:totalpages){
   print(k)
@@ -115,7 +115,7 @@ for(k in last:totalpages){
     rating <- reviews %>%
       html_node(".rating .rating_s_fill") %>%
       html_attr("alt") %>%
-      gsub(" of 5 stars", "", .) %>%
+      gsub(" of 5 bubble", "", .) %>%
       as.integer()
     
     # Date of the opinion
