@@ -115,7 +115,7 @@ for(k in last:totalpages){
     rating <- reviews %>%
       html_node(".rating .rating_s_fill") %>%
       html_attr("alt") %>%
-      gsub(" of 5 bubble", "", .) %>%
+      gsub(" of 5 bubbles", "", .) %>%
       as.integer()
     
     # Date of the opinion
