@@ -5,7 +5,7 @@
 # Inspired by:
 # http://notesofdabbler.github.io/201408_hotelReview/scrapeTripAdvisor.html
 # Author: Ana Valdivia
-# Date: June 2016
+# Date: November 2016
 ###########################################################################
 
 # Libraries
@@ -13,41 +13,25 @@ library(rvest)
 library(beepr)
 
 # change language
-Sys.setlocale("LC_TIME", "English")
+Sys.setlocale("LC_TIME", "Spanish")
 
 # Scrapping
-TripAdvisor <- data.frame()
-totalpages <- 480
-last <- 1
+TripAdvisorAlhambra <- data.frame()
+totalpages <- 1518
+last <- 694
 
 for(k in last:totalpages){
   print(k)
-  # ALHAMBRA
-  # if(k == 1) {
-  #   url <- paste0("https://www.tripadvisor.co.uk/Attraction_Review-g187441-d191078-Reviews-The_Alhambra-Granada_Province_of_Granada_Andalucia.html#REVIEWS")
-  # } else {
-  #   url <- paste0("https://www.tripadvisor.co.uk/Attraction_Review-g187441-d191078-Reviews-or",k-1,"0-The_Alhambra-Granada_Province_of_Granada_Andalucia.html")
-  #   
-  # #SAGRADA FAMILIA
-  # if(k == 1) {
-  #   url <- paste0("https://www.tripadvisor.co.uk/Attraction_Review-g187497-d190166-Reviews-Basilica_of_the_Sagrada_Familia-Barcelona_Catalonia.html#REVIEWS")
-  # } else {
-  #   url <- paste0("https://www.tripadvisor.co.uk/Attraction_Review-g187497-d190166-Reviews-or", k-1, "0-Basilica_of_the_Sagrada_Familia-Barcelona_Catalonia.html")
-  #   
-  # #CORDOBA
   if(k == 1) {
-    url <- paste0("https://www.tripadvisor.co.uk/Attraction_Review-g187430-d243774-Reviews-Mezquita_Cathedral_de_Cordoba-Cordoba_Province_of_Cordoba_Andalucia.html#REVIEWS")
+    url <- paste0("https://www.tripadvisor.es/Attraction_Review-g187441-d191078-Reviews-The_Alhambra-Granada_Province_of_Granada_Andalucia.html#REVIEWS")
   } else {
-    url <- paste0("https://www.tripadvisor.co.uk/Attraction_Review-g187430-d243774-Reviews-or", k-1, "0-Mezquita_Cathedral_de_Cordoba-Cordoba_Province_of_Cordoba_Andalucia.html")
-
-  
+    url <- paste0("https://www.tripadvisor.es/Attraction_Review-g187441-d191078-Reviews-or",k-1,"0-The_Alhambra-Granada_Province_of_Granada_Andalucia.html")
   }
-  download.file(url, destfile = "./data/MezquitaCordoba/page.html", quiet = TRUE)
   # User's information:
   
   # Name
   users <- url %>%
-    read_html("C:/Users/Ana/Dropbox (Personal)/AlhambraAnalytics/data/MezquitaCordoba/page.html") %>%
+    read_html() %>%
     html_nodes(".member_info")
                # .memberOverlayLink")
 
@@ -71,7 +55,7 @@ for(k in last:totalpages){
   
   # Location
   users <- url %>%
-    read_html("C:/Users/Ana/Dropbox (Personal)/AlhambraAnalytics/data/MezquitaCordoba/page.html") %>%
+    read_html() %>%
     html_nodes(".member_info")
 
   rev <- c()
@@ -89,11 +73,11 @@ for(k in last:totalpages){
   location <- users %>%
     html_nodes(".location") %>%
     html_text()
-  location <- gsub("\n", "", location)
+  location <- repair_encoding(gsub("\n", "", location))
   
   # Opinions
   users <- url %>%
-    read_html("C:/Users/Ana/Dropbox (Personal)/AlhambraAnalytics/data/MezquitaCordoba/page.html") %>%
+    read_html() %>%
     html_nodes(".memberBadging .reviewerBadge")
   
   userop <- users %>%
@@ -102,8 +86,8 @@ for(k in last:totalpages){
   
   # For anonymous users
   for(i in 1:length(username)){
-    if(username[i] == "A TripAdvisor Member "){
-      username[i] <- "A TripAdvisor Member"
+    if(username[i] == "Un miembro de TripAdvisor "){
+      username[i] <- "Un miembro de TripAdvisor"
       location <- append(location, NA, after=i-1)
       userop <- append(userop, NA, after=i-1)
     }
@@ -112,7 +96,7 @@ for(k in last:totalpages){
   
   # About reviews 
     reviews <- url %>%
-      read_html("C:/Users/Ana/Dropbox (Personal)/AlhambraAnalytics/data/MezquitaCordoba/page.html") %>%
+      read_html() %>%
       html_nodes("#REVIEWS .innerBubble")
   
     # ID reviewrs
@@ -128,7 +112,7 @@ for(k in last:totalpages){
     rating <- reviews %>%
       html_node(".rating .rating_s_fill") %>%
       html_attr("alt") %>%
-      gsub(" of 5 bubbles", "", .) %>%
+      gsub(" de 5 burbujas", "", .) %>%
       as.integer()
     
     # Date of the opinion
@@ -142,8 +126,8 @@ for(k in last:totalpages){
       if(is.na(date[i])){
         date.aux <- reviews %>%
           html_node(".ratingDate")
-        date[i] <- as.Date(substr(regmatches(as.character(date.aux[i]), 
-                                             regexpr('Reviewed .+\n', as.character(date.aux[i]))), 10, nchar(regmatches(as.character(date.aux[i]), regexpr('Reviewed .+\n', as.character(date.aux[i]))))-1), format="%d %b %Y")
+        date[i] <- as.Date(substr(regmatches(as.character(date.aux[i]),
+                                             regexpr('escrita el .+\n', as.character(date.aux[i]))), 12, nchar(regmatches(as.character(date.aux[i]), regexpr('escrita el .+\n', as.character(date.aux[i]))))-1), format="%d %b %Y")
         }
       }
           
@@ -157,32 +141,32 @@ for(k in last:totalpages){
     # COMPLETE REVIEWS:
     reviewnospace <- as.character(c(1:length(id)))
     for(i in 1:length(id)){
-      completeReviewURL <- paste0("https://www.tripadvisor.co.uk/ShowUserReviews-g187430-d243774-r",gsub("rn", "", id[i]),"-Mezquita_Cathedral_de_Cordoba-Cordoba_Province_of_Cordoba_Andalucia.html#REVIEWS")
+      completeReviewURL <- paste0("https://www.tripadvisor.es/ShowUserReviews-g187441-d191078-r",gsub("rn", "", id[i]),"-The_Alhambra-Granada_Province_of_Granada_Andalucia.html#REVIEWS")
       reviews_aux <- completeReviewURL %>%
-              read_html("C:/Users/Ana/Dropbox (Personal)/AlhambraAnalytics/data/MezquitaCordoba/page.html") %>%
+              read_html() %>%
               html_nodes(".entry")
               
       
-      reviewnospace[i] <- gsub(paste0('.*"review_',gsub("rn", "", id[i]),'\">\n|\n.*'), "", as.character(reviews_aux[1]))
- 
+      reviewnospace[i] <- repair_encoding(gsub(paste0('.*"review_',gsub("rn", "", id[i]),'\">\n|\n.*'), "", as.character(reviews_aux[1])), "UTF-8")
     }
       
   # Page in TripAdvisor
   page <- rep(k, length(username))
   
-  temp.TripAdvisor <- data.frame(id, username, location, userop, quote, 
+  temp.TripAdvisorAlhambra <- data.frame(id, username, location, userop, quote, 
                               rating, date, reviewnospace, page, stringsAsFactors = FALSE) 
   
-  TripAdvisor <- rbind(TripAdvisor, temp.TripAdvisor)
+  TripAdvisorAlhambra <- rbind(TripAdvisorAlhambra, temp.TripAdvisorAlhambra)
 }
 beep(2)
 
-# Delete duplicated reviews
-TripAdvisor <- TripAdvisor[!(duplicated(TripAdvisor$reviewnospace)),] 
 # Remove <br/> symbol
-TripAdvisor$reviewnospace <- gsub("<br/>", "", TripAdvisor$reviewnospace)
+TripAdvisorAlhambra <- TripAdvisorAlhambra[!(duplicated(TripAdvisorAlhambra)),]
+TripAdvisorAlhambra$reviewnospace <- gsub("<br/>", "", TripAdvisorAlhambra$reviewnospace)
 # Merge title and opinion
-TripAdvisor$titleopinion <- paste(TripAdvisor$quote, TripAdvisor$reviewnospace, sep=". ")
-TripAdvisor2 <- TripAdvisor[TripAdvisor$date <= as.Date("2016-10-31"),]
+TripAdvisorAlhambra$titleopinion <- paste(TripAdvisorAlhambra$quote, TripAdvisorAlhambra$reviewnospace, sep=". ")
 
-write.csv(TripAdvisor2, file="./data/MezquitaCordoba/TripAdvisor_MezquitaCordoba_20161031_ENGLISH_complete.csv")
+TripAdvisorAlhambra <- TripAdvisorAlhambra[TripAdvisorAlhambra$date <= as.Date("2016-10-31"),]
+write.csv(TripAdvisorAlhambra, file="C:/Users/Ana/Dropbox (Personal)/AlhambraAnalytics/data/Alhambra/TripAdvisorAlhambra_20161031_SPANISH_complete.csv", row.names = FALSE)
+
+# save(TripAdvisorAlhambra, file="./data/TripAdvisorAlhambra_SPANISH.Rdata")
