@@ -1,8 +1,8 @@
 # ###########################################################################
 #
-# BAG OF WORDS TRIP ADVISOR OPINIONS
+# BIGRAM FEATURE SELECTION METHOD (BSFM)
 #
-# Description: Create a bag of words for pos, neg and neutral opinions
+# Description: Select 2-Features for Doc-Term matrix construction
 # Author: Ana Valdivia
 # Date: July 2016
 ###########################################################################
