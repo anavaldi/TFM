@@ -32,4 +32,4 @@ There is a brief description for each script of the code:
 11. [Models_xgboost_FINAL.R](https://github.com/anavaldi/TFM/blob/master/scripts/Models_xgboost_FINAL.R): XGBoost models for sentiment classification.
 
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/anavaldi/TFM/blob/master/DSC00677_2.jpg "Alhambra")
