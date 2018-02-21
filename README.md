@@ -33,3 +33,6 @@ There is a brief description for each script of the code:
 
 
 ![alt text](https://github.com/anavaldi/TFM/blob/master/DSC00677_2.jpg "Alhambra")
+
+
+License: [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/)
