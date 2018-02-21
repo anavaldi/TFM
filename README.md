@@ -15,9 +15,9 @@ There is a brief description for each script of the code:
 
 3. [coreNLP.R](https://github.com/anavaldi/TFM/blob/master/scripts/coreNLP.R): Applying CoreNLP Sentiment Analysis method to reviews.
 
-4. [UFSM.R]https://github.com/anavaldi/TFM/blob/master/scripts/UFSM.R): Unigram Feature Selection Method (UFSM) script.
+4. [UFSM.R](https://github.com/anavaldi/TFM/blob/master/scripts/UFSM.R): Unigram Feature Selection Method (UFSM) script.
 
-5. [BFSM.R]https://github.com/anavaldi/TFM/blob/master/scripts/BSFM.R): Bigram Feature Selection Method (BFSM) script.
+5. [BFSM.R](https://github.com/anavaldi/TFM/blob/master/scripts/BSFM.R): Bigram Feature Selection Method (BFSM) script.
 
 6. [WordCloud.R](https://github.com/anavaldi/TFM/blob/master/scripts/WordCloud.R): Print a wordcloud of reviews.
 
@@ -30,3 +30,6 @@ There is a brief description for each script of the code:
 10. [ModelPerformance.R](https://github.com/anavaldi/TFM/blob/master/scripts/ModelPerformance.R): Different models for sentiment classification.
 
 11. [Models_xgboost_FINAL.R](https://github.com/anavaldi/TFM/blob/master/scripts/Models_xgboost_FINAL.R): XGBoost models for sentiment classification.
+
+
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
