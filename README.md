@@ -1,6 +1,8 @@
 #  Sentiment Analysis For Touristic Attractions: A Case Study On The Alhambra
 ###### Master Thesis Project of Ana Valdivia
 
+![alt text](https://github.com/anavaldi/TFM/blob/master/DSC00677_2.jpg "Alhambra")
+
 # ABSTRACT #
 
 The development of Web 2.0 has led to an important amount of content in webpage. Users are free to express their opinions about products, places and events. This project research is aimed at introducing sentiment analysis into touristic attractions. To begin with, we scrap TripAdvisor reviews from the most touristic attraction in Spain, the Alhambra. We then create two sentiment labels: the expert sentiment which is the rate of the reviewer; and the machine sentiment which is extracted from a Natural Language Processing toolkit developed in Stanford University. After that, we build classification models so as to predict polarity sentiments. Finally, we develop a subgroup discovery method so as to extract valuable information about negative reviews.
@@ -32,8 +34,6 @@ There is a brief description for each script of the code:
 
 11. [Models_xgboost_FINAL.R](https://github.com/anavaldi/TFM/blob/master/scripts/Models_xgboost_FINAL.R): XGBoost models for sentiment classification.
 
-
-![alt text](https://github.com/anavaldi/TFM/blob/master/DSC00677_2.jpg "Alhambra")
 
 
 License: [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/)
