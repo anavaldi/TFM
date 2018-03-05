@@ -1,4 +1,5 @@
 #  Sentiment Analysis For Touristic Attractions: A Case Study On The Alhambra
+###### Master Thesis Project of Ana Valdivia
 
 # ABSTRACT #
 
